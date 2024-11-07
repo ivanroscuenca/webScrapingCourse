@@ -10,3 +10,9 @@ respuesta = requests.get(url, headers=headers)
 # parser BeautifulSoup
 soup = BeautifulSoup(respuesta.text)
 
+lista_noticias = soup.find_all('tr', class_='athing')
+
+for noticia in lista_noticias:
+    titulo = noticia.find('span',class_='titleline').text
+    print(titulo)
+
