@@ -35,7 +35,7 @@ class CruzVerde(CrawlSpider):
             tags=('a','button'),
             attrs=('href','data-url')
         ), follow=True , callback='parse_farmacia'
-    )
+    ),
 
     def parse_farmacia(self,response):
         sel = Selector(response)
