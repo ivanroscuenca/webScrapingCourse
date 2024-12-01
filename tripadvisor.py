@@ -21,6 +21,7 @@ class TripAdvisor(CrawlSpider):
     custom_settings = {
         'USER-AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
     }
+
     start_urls = ['https://www.tripadvisor.com/Hotels-g303845-Guayaquil_Guayas_Province-Hotels.html']  # URL inicial donde empieza el rastreo
 
     download_delay = 2  # Retardo de 2 segundos entre cada solicitud para evitar sobrecargar el servidor
