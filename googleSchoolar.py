@@ -53,7 +53,7 @@ class GoogleScholar(CrawlSpider):
             url = articulo.xpath('.//h3/a/@href').get()
             item.add_value('url', url)
 
-            autores = articulo.xpath('.//div[@class="gs_a"//text()').getall()
+            autores = articulo.xpath('.//div[@class="gs_a"]//text()').getall()
             autores = ''.join(autores)
             autores = autores.split('-')[0].strip()
             item.add_value('autores', autores)
