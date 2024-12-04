@@ -23,7 +23,9 @@ class GoogleScholar(CrawlSpider):
     name = 'googlescholar'
     custom_settings = {
         'USER_AGENT': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36',
-        'CLOSESPIDER_PAGECOUNT': 100
+        'CLOSESPIDER_PAGECOUNT': 100,
+        'DEPTH_LIMIT': 1, # Para definir que solo se vaya a un nivel de profundidad,
+        'FEED_EXPORT_ENCODING': 'utf-8'  # Para evitar problemas con codificacion de simbolos
     }
     allowed_domains = ['scholar.google.com']
     start_urls = [
@@ -36,18 +38,19 @@ class GoogleScholar(CrawlSpider):
             LinkExtractor(
                 restrict_xpaths='//div[@class="gs_ri"]',
                 allow=r'\?cites='
-            ), follow=True, callback="extraer_articulo"
+            ), follow=True, callback="parse_start_url"
         ),
     )
 
-    def extraer_articulo(self, response):
+    def parse_start_url(self, response):
         sel = Selector(response)
         articulos = sel.xpath('//div[@class="gs_ri"]')
 
         for articulo in articulos:
             item = ItemLoader(Articulo(), articulo)
 
-            titulo = articulo.xpath('.//h3/a/text()').get()
+            titulo = articulo.xpath('.//h3/a/text()').getall()
+            titulo = "".join(titulo)
             item.add_value('titulo', titulo)
 
             url = articulo.xpath('.//h3/a/@href').get()
