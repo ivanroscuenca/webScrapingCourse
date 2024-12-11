@@ -64,6 +64,5 @@ class TripAdvisor(CrawlSpider):
         item.add_xpath('amenities',
                        '//div[contains(@data-test-target, "amenity_text")]/text()')
         yield item.load_item()
-
 # EJECUCION
 # scrapy runspider scrapy_bajo_microscopio.py -o tripadvisor.csv
