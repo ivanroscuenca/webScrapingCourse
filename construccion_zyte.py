@@ -27,7 +27,7 @@ class Urbaniape(CrawlSpider):
         'DOWNLOADER_MIDDLEWARES': {'scrapy_zyte_smartproxy.ZyteSmartProxyMiddleware': 610},
         'ZYTE_SMARTPROXY_ENABLED': True,
         'ZYTE_SMARTPROXY_URL': 'http://api.zyte.com:8011', # Migracion a Zyte API (Abril 2024)
-        'ZYTE_SMARTPROXY_APIKEY': 'db3f371f24cc44f49abdd60fdcb67405',
+        'ZYTE_SMARTPROXY_APIKEY': 'useyourapikeyfromZyte',
         'FEED_EXPORT_ENCODING': 'utf-8' # Para evitar problemas con codificacion de simbolos
     }
 
