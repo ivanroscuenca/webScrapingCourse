@@ -30,7 +30,9 @@ def extract_titles(driver):
     titulos = driver.find_elements(By.XPATH,
                                    '//a[@class="stsb_mini_product_name stsb_flex_wrapper"]')
     for titulo in titulos:
-        print(titulo.text)
+        texto = titulo.text.strip()  # Eliminar espacios en blanco al principio y al final
+        if texto:  # Verificar si el texto no está vacío
+            print(texto)
 
 
 extract_titles(driver)
