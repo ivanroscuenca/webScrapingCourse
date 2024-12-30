@@ -86,7 +86,7 @@ while PAGINACION_MAX > PAGINACION_ACTUAL:
         puedo_seguir_horizontal.click()
     except:
         # Si obtengo un error al intentar darle click al boton, quiere decir que no existe
-        # Lo cual me indica que ya no puedo seguir paginando, por ende rompo el While
+        # Lo cual me indica que ya no puedo seguir paginando, rompo el While
         break
 
     PAGINACION_ACTUAL += 1
