@@ -32,3 +32,4 @@ for i in range (1, 4):
         print (curso["title"])
         print (curso["num_reviews"])
         print (curso["rating"])
+        print()
