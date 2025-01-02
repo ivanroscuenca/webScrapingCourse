@@ -1,4 +1,5 @@
 import cloudscraper
+import pandas as pd
 
 # Define los encabezados
 headers = {
@@ -12,7 +13,7 @@ scraper = cloudscraper.create_scraper()
 
 # Este lazo for me ayudara a iterar el parametro "page" del API, HACEMOS 3 ITERACIONES
 cursos_totales = []
-for i in range (1, 4):
+for i in range (1, 2):
     print(f"Página actual: {i}")
     # Esta URL, y los parametros la deciframos gracias al panel de Networks y a una tarea de investigacio
     url_api = 'https://www.udemy.com/api-2.0/search-courses/?src=ukw&q=python&skip_price=true&p=' + str(i)
@@ -24,12 +25,18 @@ for i in range (1, 4):
     # Extraigo los datos del diccionario
     cursos = data["courses"]
     for curso in cursos:
+        #ponemos dentro de un diccionario
         cursos_totales.append({
             "title":  curso["title"],
             "num_reviews": curso["num_reviews"],
             "rating": curso["rating"]
         })
-        print (curso["title"])
-        print (curso["num_reviews"])
-        print (curso["rating"])
-        print()
+        #imprimimos en pantalla
+        #print (curso["title"])
+        #print (curso["num_reviews"])
+        #print (curso["rating"])
+        #print()
+
+df = pd.DataFrame(cursos_totales)
+print(df)
+df.to_csv('udemy_cursos')
