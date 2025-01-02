@@ -13,7 +13,7 @@ scraper = cloudscraper.create_scraper()
 
 # Este lazo for me ayudara a iterar el parametro "page" del API, HACEMOS 3 ITERACIONES
 cursos_totales = []
-for i in range (1, 2):
+for i in range (1, 4):
     print(f"Página actual: {i}")
     # Esta URL, y los parametros la deciframos gracias al panel de Networks y a una tarea de investigacio
     url_api = 'https://www.udemy.com/api-2.0/search-courses/?src=ukw&q=python&skip_price=true&p=' + str(i)
