@@ -1,3 +1,4 @@
+#Nivel 1
 # VER RECURSOS DE LA CLASE PARA INSTALAR SCRAPY
 from scrapy.item import Field
 from scrapy.item import Item
