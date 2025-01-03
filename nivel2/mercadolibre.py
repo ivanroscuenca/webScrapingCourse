@@ -1,3 +1,4 @@
+#Nivel 2
 # Importamos los módulos necesarios de Scrapy
 from scrapy.spiders import CrawlSpider  # usando CrawlSpider
 from scrapy.linkextractors import LinkExtractor  # Necesitamos LinkExtractor para extraer enlaces
