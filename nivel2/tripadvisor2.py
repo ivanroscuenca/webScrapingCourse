@@ -1,3 +1,4 @@
+#Nivel 2
 # Importación de módulos necesarios de Scrapy
 from scrapy.item import Field  # Para definir los campos de los items
 from scrapy.item import Item  # Para definir items (estructura de los datos que vamos a extraer)
