@@ -20,24 +20,24 @@ parser_login = html.fromstring(login_form_res.content)
 token_especial = parser_login.xpath('//input[@name="authenticity_token"]/@value')
 
 # Este es el URL por tres razones:
-# 1. Es el primer endpoint que se llama al dar click en el boton de iniciar sesion.
+# 1. Es el primer endpoint que se llama al dar click en el botón de iniciar sesion.
 # 2. es un endpoint de tipo POST. Los inicios de sesion y el procesamiento de formularios casi siempre se realiza en un POST.
 # 3. El nombre del endpoint (/session) me indica que es lo que hace.
 login_url = 'https://github.com/session'
 
-# datos obtenidos de el FormData que se encuentra en la pestaña de Payload. Una nueva pestaña al lado de la pestaña Headers.
-# el nombre de estos parametros cambia entre cada pagina web, usualmente solamenete tendremos que definir el usuario y el password
+# Datos obtenidos del FormData que se encuentra en la pestaña de Payload. Una nueva pestaña al lado de la pestaña Headers.
+# El nombre de estos parametros cambia entre cada pagina web, usualmente solamente tendremos que definir el usuario y el password
 # Basicamente armamos la data que envia el formulario a la login_url
 login_data = {
     "login": "ivanros@protonmail.com",
     "password": open('./password.txt').readline().strip(),
-    "commit": "Sign in",  # se que lo tengo que poner porque al parecer me indica una accion
+    "commit": "Sign in",  # se que lo tengo que poner porque al parecer me indica una acción
     "authenticity_token": token_especial  # se que lo tengo que enviar, porque es un TOKEN. Todo TOKEN es importante
-    # timestamp y timestamp_secret tambien los tenemos pero luego de realizar pruebas, comprobamos que no son importantes
+    # timestamp y timestamp_secret también los tenemos pero luego de realizar pruebas, comprobamos que no son importantes
 }
 
 # Una vez ejecutado el requerimiento POST a la URL de Login con la data necesaria, yo ya estoy logeado
-# Y el objeto session me mantiene logeado para los futuros requerimientos
+# Y el objeto session me mantiene logueado para los futuros requerimientos
 session.post(
     login_url,
     data=login_data,
