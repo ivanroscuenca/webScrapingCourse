@@ -44,7 +44,7 @@ autos = wait.until(EC.presence_of_all_elements_located((By.XPATH, '//li[@data-au
 print(f"Cantidad de autos encontrados: {len(autos)}")
 
 # Configuración de MongoDB
-MONGODB_URI = "mongodb+srv://ivanroscuenca:1234@cluster0.wqa40.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+MONGODB_URI = "mongodb+srv://ivanroscuenca:<dbpassword>@cluster0.wqa40.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 client = MongoClient(MONGODB_URI)
 db = client.get_database("olx_cars")  # Nombre de la base de datos
 collection = db.get_collection("cars")  # Nombre de la colección
